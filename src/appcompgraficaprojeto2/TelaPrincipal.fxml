@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="1041.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appcompgraficaprojeto2.TelaPrincipalController">
+   <center>
+      <ImageView fx:id="imageview" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#evtOnMouseClicked" onMousePressed="#evtOnMousePressed" onMouseReleased="#evtOnMouseReleased" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <ScrollPane prefHeight="727.0" prefWidth="358.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="vbPrincipal" alignment="TOP_CENTER" prefHeight="900.0" prefWidth="356.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#evtPrimitivas" prefWidth="150.0" text="Primitivas" />
+                        <Button mnemonicParsing="false" onAction="#evtPoligonos" prefWidth="150.0" text="Poligonos" />
+                     </children>
+                  </HBox>
+                  <VBox fx:id="vbRetas" alignment="TOP_CENTER" prefHeight="98.0" prefWidth="273.0" style="-fx-border-color: #cccccc;">
+                     <children>
+                        <Label text="Retas" textFill="#b20dd7">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cbTipoReta" prefWidth="155.0" />
+                        <Button mnemonicParsing="false" onAction="#btnClickDesenharReta" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #d9b3ff;" text="Desenhar Linha">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vbCirculo" alignment="CENTER" prefHeight="106.0" prefWidth="261.0" style="-fx-border-color: #cccccc;">
+                     <children>
+                        <Label text="Circunferência" textFill="#3d1ceb">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cbTipoCirculo" prefWidth="155.0" />
+                        <Button mnemonicParsing="false" onAction="#btnClickDesenharCirculo" prefWidth="155.0" style="-fx-background-color: #66a3ff;" text="Desenhar Curcunferência">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vbElipse" alignment="CENTER" prefHeight="77.0" prefWidth="269.0" style="-fx-border-color: #cccccc;">
+                     <children>
+                        <Label text="Elipse" textFill="#00750c">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#evtDesenharElipse" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #00b300;" text="Desenhar Elipse">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vbPoligonos" alignment="CENTER" prefHeight="300.0" prefWidth="356.0" style="-fx-border-color: #cccccc;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0">
+                           <children>
+                              <Label text="Polígonos" textFill="RED">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" onAction="#evtAddPoligono" style="-fx-background-color: #ff704d;" text="+">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="200.0">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <children>
+                              <TableView fx:id="tabelaPoligonos" onMouseClicked="#evtClickTabelaPoligonos" prefHeight="99.0" prefWidth="263.0">
+                                <columns>
+                                  <TableColumn fx:id="colNomePol" prefWidth="247.0" text="Poligonos" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="200.0">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <children>
+                              <TableView fx:id="tabelaPontos" prefHeight="96.0" prefWidth="268.0">
+                                <columns>
+                                  <TableColumn fx:id="colX" prefWidth="138.0" text="X" />
+                                  <TableColumn fx:id="colY" prefWidth="121.0" text="Y" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vbTransformacoes" prefHeight="151.0" prefWidth="273.0">
+                     <children>
+                        <HBox prefHeight="31.0" prefWidth="273.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="362.0">
+                                 <children>
+                                    <Label text="Rotação" textFill="#2faeaa">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox>
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <children>
+                                                <TextField fx:id="txGrau" />
+                                                <Button mnemonicParsing="false" onAction="#evtRotacao" prefHeight="25.0" prefWidth="47.0" text="OK" />
+                                             </children>
+                                          </HBox>
+                                          <VBox prefHeight="70.0" prefWidth="273.0">
+                                             <children>
+                                                <RadioButton fx:id="radOpcaoCentro" mnemonicParsing="false" onAction="#radClickCentro" text="Centro" />
+                                                <RadioButton fx:id="radOpcaoOrigem" mnemonicParsing="false" onAction="#radClickOrigem" text="Origem" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="63.0" prefWidth="273.0">
+                           <children>
+                              <Label text="Translação" textFill="#2faeaa">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="22.0" text="X :" />
+                                    <TextField fx:id="txTranslacaoX" prefHeight="25.0" prefWidth="47.0">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label prefHeight="17.0" prefWidth="26.0" text="Y :">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="txTranslacaoY" prefHeight="25.0" prefWidth="47.0" />
+                                    <Button mnemonicParsing="false" onAction="#evtTranslacao" text="OK">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="90.0" prefHeight="63.0" prefWidth="273.0">
+                           <children>
+                              <Label text="Escala" textFill="#2faeaa">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="22.0" text="X :" />
+                                    <TextField fx:id="txEscalaX" prefHeight="25.0" prefWidth="53.0">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label prefHeight="17.0" prefWidth="26.0" text="Y :">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="txEscalaY" prefHeight="25.0" prefWidth="47.0" />
+                                    <Button mnemonicParsing="false" onAction="#evtEscala" text="OK">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="136.0" prefHeight="63.0" prefWidth="273.0">
+                           <children>
+                              <Label text="Cisalhamento" textFill="#2faeaa">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="22.0" text="X :" />
+                                    <TextField fx:id="txCisalhamentoX" prefHeight="25.0" prefWidth="53.0">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label prefHeight="17.0" prefWidth="26.0" text="Y :">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="txCisalhamentoY" prefHeight="25.0" prefWidth="47.0" />
+                                    <Button mnemonicParsing="false" onAction="#evtCisalhamento" text="OK">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="182.0" prefHeight="63.0" prefWidth="273.0">
+                           <children>
+                              <Label text="Espelhamento" textFill="#2faeaa">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <ComboBox fx:id="cbEspelhamento" prefWidth="115.0" />
+                                    <Button mnemonicParsing="false" onAction="#evtEspelhamento" text="OK">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="vbPreencher" alignment="CENTER" prefHeight="150.0" prefWidth="100.0" style="-fx-border-color: #cccccc;">
+                     <children>
+                        <Label text="Preenchimento" textFill="#ff9500">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cbTipoPreencher" prefWidth="155.0" />
+                        <Button mnemonicParsing="false" onAction="#btnClickPreencher" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #ff8533;" text="Preencher">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </right>
+   <top>
+      <MenuBar prefHeight="23.0" prefWidth="593.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#evtAbrirImagem" text="Abrir..." />
+                  <MenuItem mnemonicParsing="false" onAction="#evtLimparTela" text="Limpar tela" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
